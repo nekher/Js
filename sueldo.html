@@ -4,134 +4,190 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miseria absoluta!</title>
+    <title>Calculo del Sueldo</title>
 
     <script>
         //inicio de declaracion de variables globales
-        const catE = 470; 
-        const catD = 582;
-        const catC = 670;
-        const grado1 = 0.0429;
-        const grado2 = grado1 + 0.0487;
-        const grado3 = grado1 + grado2 + 0.0656;
-        const grado4 = grado1 + grado2 + grado3 + 0.0611;
-        const grado5 = grado1 + grado2 + grado3 + grado4 + 0.0398;
-        const brutoneto = 15;
-        var categoriaelegida = '';
-        var gradoelegido = '';
-        var ur = 0;
-        var catsingrado = 0;  
-        var sueldobruto = 0;
-        var sueldoneto = 0;
+        const catF = 452; //cantidad de UR de la categoria E
+        //cantidad de UR de aumento, de acuerdo al GRADO en la categoria E
+        const gradoF1 = 461;
+        const gradoF2 = 470;
+        const gradoF3 = 479;
+        const gradoF4 = 560.8;
+        const gradoF5 = 574.8;
+        const gradoF6 = 589.8;
+        const gradoF7 = 604.8;
+        const gradoF8 = 693.5;
+        const gradoF9 = 714.59;
+        const gradoF10= 736.59;
+
+        const catE = 470; //cantidad de UR de la categoria E
+        //cantidad de UR de aumento, de acuerdo al GRADO en la categoria E
+        const gradoE1 = 481;
+        const gradoE2 = 495;
+        const gradoE3 = 513;
+        const gradoE4 = 602.5;
+        const gradoE5 = 622.5;
+        const gradoE6 = 643.5;
+        const gradoE7 = 667.5;
+        const gradoE8 = 763;
+        const gradoE9 = 790;
+        const gradoE10= 818;
+
+        const catD = 582; //cantidad de UR de la categoria D
+        //cantidad de UR de aumento, de acuerdo al GRADO en la categoria D
+        const gradoD1 = 600;
+        const gradoD2 = 622;
+        const gradoD3 = 645;
+        const gradoD4 = 756.29;
+        const gradoD5 = 784.29;
+        const gradoD6 = 813.29;
+        const gradoD7 = 844.29;
+        const gradoD8 = 963.59;
+        const gradoD09 = 997.59;
+        const gradoD10= 1033.59;
+
+        const catC = 670; //cantidad de UR de la categoria C
+        //cantidad de UR de aumento, de acuerdo al GRADO en la categoria C
+        const gradoC1 = 697;
+        const gradoC2 = 731;
+        const gradoC3 = 779;
+        const gradoC4 = 904.5;
+        const gradoC5 = 940.5;
+        const gradoC6 = 979.5;
+        const gradoC7 = 1020.5;
+        const gradoC8 = 1164;
+        const gradoC9 = 1209;
+        const gradoC10= 1257;
+        
+        //Cantidad de descuentos que se aplican en % del sueldo BRUTO SIN contar el Sindicato
+        const descBruto = 13;
+        //Cantidad de descuento que se aplica en % del sueldo BRUTO PARA el Sindicato
+        const descSindi = 2;
+
+        
+        //Variables que el usuario CARGA
+        var categoriaElegida = ''; // Variable que tendra el valor de la categoria elegida x le usuarie
+        var gradoElegido = ''; // Variable que tendra el valor del grado elegido x le usuarie
+        var uR = 0; // Variable que tendra el valor de la Unidad Retributiva de acuerdo al mes
+        
+        //Variables que usaran las funciones
+        var catSinGrado = 0;   
+        var sueldoBruto = 0;
+        var sueldoNeto = 0;
         
         //inicio de las operaciones logicas
                 
         function calculosueldo(){
-        categoriaelegida = prompt('Cual es tu categoria?');
-        gradoelegido = prompt('Cual es tu grado?');
-        ur = prompt('Cuanto valen las UR hoy?');
+        categoriaElegida = prompt('Cual es tu categoria?');
+        gradoElegido = prompt('Cual es tu grado?');
+        uR = prompt('Cuanto valen las UR hoy?');
         
                 //INICIO DE CATEGORIA E
-            if (categoriaelegida == 'e') 
+            if (categoriaElegida == 'e') 
                 {
-                catsingrado = catE * ur;
-                if (gradoelegido == 0)
+                catSinGrado = catE * uR;
+                if (gradoElegido == 0)
                     {
-                    sueldobruto = catsingrado;
-                    //sueldobruto = (sueldoneto % brutoneto);
-                    alert ('elsueldo bruto es ' +  sueldobruto) ;
+                        sueldoBruto = catSinGrado;
+                        sueldoNeto = (sueldoBruto % descBruto) + sueldoBruto;
+                    alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;
                     }
-                    else if (gradoelegido == 1) 
+                    else if (gradoElegido == 1) 
                         {
-                        sueldobruto = (catsingrado * grado1) + catsingrado;
-                        alert ('elsueldo bruto es ' +  sueldobruto);
+                        catSinGrado = gradoE1 * uR    
+                        sueldoBruto = catSinGrado;
+                        sueldoNeto = (sueldoBruto % descBruto) + sueldoBruto;
+                    alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) 
                         }
-                    else if (gradoelegido == 2) 
+                    else if (gradoElegido == 2) 
                         {
-                        sueldobruto = (catsingrado * grado2) + catsingrado;
-                        alert ('elsueldo bruto es ' +  sueldobruto);
+                            catSinGrado = gradoE2 * uR    
+                        sueldoBruto = catSinGrado;
+                        sueldoNeto = (sueldoBruto % descBruto) + sueldoBruto;
+                    alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) 
                         }
-                    else if (gradoelegido == 3)
+                    else if (gradoElegido == 3)
                         {
                         sueldobruto = (catsingrado * grado3) + catsingrado;
                         alert ('elsueldo bruto es ' +  sueldobruto);
                         }
-                    else if (gradoelegido== 4)
+                    else if (gradoElegido== 4)
                         {
                         sueldobruto = (catsingrado * grado4) + catsingrado;
                         alert ('elsueldo bruto es ' +  sueldobruto);
                         }
-                    else if (gradoelegido == 5)
+                    else if (gradoElegido == 5)
                         {
                         sueldobruto = (catsingrado * grado5) + catsingrado;
                         alert ('elsueldo bruto es ' +  sueldobruto);
                         }
             }
                 //INICIO DE CATEGORIA D
-            else if (categoriaelegida == 'd')
+            else if (categoriaElegida == 'd')
                 {
-                catsingrado = (catD * ur);
-                if (gradoelegido == 0)
+                catsingrado = (catD * uR);
+                if (gradoElegido == 0)
                     {
                     sueldobruto = catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
                     }
-                    else if (gradoelegido == 1)
+                    else if (gradoElegido == 1)
                         {
                         sueldobruto = (catsingrado * grado1) + catsingrado;
                         alert ('elsueldo bruto es ' +  sueldobruto);
                         }
-                        else if (gradoelegido == 2)
+                        else if (gradoElegido == 2)
                         {
                         sueldobruto = (catsingrado * grado2) + catsingrado;
                         alert ('elsueldo bruto es ' +  sueldobruto);
                         }
-                        else if (gradoelegido == 3)
+                        else if (gradoElegido == 3)
                         {
                         sueldobruto = (catsingrado * grado3) + catsingrado;
                         alert ('elsueldo bruto es ' +  sueldobruto);
                         }
-                        else if (gradoelegido== 4)
+                        else if (gradoElegido== 4)
                         {
                         sueldobruto = (catsingrado * grado4) + catsingrado;
                         alert ('elsueldo bruto es ' +  sueldobruto);
                         }
-                        else if (gradoelegido == 5)
+                        else if (gradoElegido == 5)
                         {
                         sueldobruto = (catsingrado * grado5) + catsingrado;
                         alert ('elsueldo bruto es ' +  sueldobruto);
                         }
                     }
                     //INICIO DE CATEGORIA C
-            else if (categoriaelegida == 'c') 
+            else if (categoriaElegida == 'c') 
                 {
-                catsingrado = (catC * ur);
-                if (gradoelegido == 0)
+                catsingrado = (catC * uR);
+                if (gradoElegido == 0)
                     {
                     sueldobruto = catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
                     }
-                    else if (gradoelegido == 1)
+                    else if (gradoElegido == 1)
                     {
                     sueldobruto = (catsingrado * grado1) + catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
                     }
-                    else if (gradoelegido == 2)
+                    else if (gradoElegido == 2)
                     {
                     sueldobruto = (catsingrado * grado2) + catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
                     }
-                    else if (gradoelegido == 3)
+                    else if (gradoElegido == 3)
                     {
                     sueldobruto = (catsingrado * grado3) + catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
                     }
-                    else if (gradoelegido== 4)
+                    else if (gradoElegido== 4)
                     {
                     sueldobruto = (catsingrado * grado4) + catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
                     }
-                    else if (gradoelegido == 5)
+                    else if (gradoElegido == 5)
                     {
                     sueldobruto = (catsingrado * grado5) + catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
