@@ -1,64 +1,55 @@
 //inicio de declaracion de variables globales
-const gradoE = 470  
-const gradoD = 582
-const gradoC = 670
-const cat0 = 1
-const cat1 = 4.29
-const cat2 = 4.87
-const cat3 = 6.56
-const cat4 = 6.11
-const cat5 = 3.98
-const brutoneto = 15
+const catE = 470; 
+const catD = 582;
+const catC = 670;
+const grado0 = 1;
+const grado1 = 4.29;
+const grado2 = 4.87;
+const grado3 = 6.56;
+const grado4 = 6.11;
+const grado5 = 3.98;
+const brutoneto = 15;
+const btn1 = document.querySelector('button');
+
+btn1.onclick = function() {
+    // let planta = prompt('¿Sos planta permanente? SI o NO');
+     var categoriaelegida = prompt('Cual es tu categoria?');
+     var gradoelegido = prompt('Cual es tu grado?');
+     alert('Elegiste que tu categoria es ' + categoriaelegida + ' que sos grado ' +gradoelegido + ',que tristeza!');
+      }
+
+
 
 //inicio de declaracion de variables locales
-let unidadretributiva = 128.47 //el usuario tiene que colocar el valor actual de la unidad retributiva
-let gradoelegido = 'C' //el usuario elije la opcion E, D, C
-let categoriaelegida = '3' //el usuario elije la categoria 1,2,3,4,5
-let gradosincat = "" // se asigna la constante elegida
-let resultadoB = ""
-let resultadoN = ""
+//let planta = 0
+//var categoriaelegida = ;
+//var gradoelegido = ;
+//var unidadretributiva = ; //el usuario tiene que colocar el valor actual de la unidad retributiva
+//var categoria = categoriaelegida; //el usuario elije la opcion E, D, C
+//var grado = gradoelegido; //el usuario elije la categoria 1,2,3,4,5
+//var catsingrado = ; // se asigna la constante elegida
+//var resultadoB = (catsingrado * gradoelegido);
+//var resultadoN = (resultadoB % brutoneto);
+
+
+
+
 
 //inicio de las operaciones logicas
-
-//asignar el valor real del sueldo marcado
-
-if (gradoelegido === "E") {
-                        gradosincat = (gradoE * unidadretributiva); }
-                        else if (gradoelegido === "D") {
-                                gradosincat = (gradoD * unidadretributiva);  }
-                                else {
-                                    gradosincat = (gradoC * unidadretributiva); }
-
-
-resultadoB = (gradosincat * categoriaelegida);
-resultadoN = (resultadoB % brutoneto);
-alert (gradoelegido)
-alert (categoriaelegida)
-alert (gradosincat)
-
-
-alert (resultadoN);
+//asignar el valor real del sueldo elegido
+document.getElementById("categoria").innerHTML = categoriaelegida;
+document.getElementById("grado").innerHTML = 5 + 6;
+document.getElementById("ur").innerHTML = 5 + 6;
+/*if (categoria === 'e') {
+                        catsingrado = catE * unidadretributiva;
+                        }
+                        else if (categoria === 'd') {
+                                catsingrado = (catD * unidadretributiva); 
+                                }
+                                else catsingrado = (catC * unidadretributiva); 
+*/                                     
 
 
 
-
-// procedimiento grado elegido
-//Tomar variable del input del texto. que valide que solo sea letra E D y C 
-
-
-//procedimiento de la categoria elegida
-//tomar variable del input del texto. que valide que solo sea 0 1 2 3 o 4
-
-
-
-
-
-//la pagina deberia decir:
-//Si no sabes el monto de la unidad retributiva:
-//JUNIO 2022 = 128.47
-//AGOSTO 2022 = 141.76
-//OCTUBRE 2022 = 155.05
-//ENERO 2023 = 166.13
-//MARZO 2023 = 177.20
 
 
