@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculo del Sueldo</title>
 
-    <script>
+ 
+ <!-- <script>
+
+
+/*
         //inicio de declaracion de variables globales
         const catF = 452; //cantidad de UR de la categoria E
         //cantidad de UR de aumento, de acuerdo al GRADO en la categoria E
@@ -75,19 +79,49 @@
         var catSinGrado = 0;   
         var sueldoBruto = 0;
         var sueldoNeto = 0;
+       
         
+        //RECORDAR: Para usar una funcion dentro de otra, la misma se menciona SIN el "function" solo se nombra, cual variable. Luego en otra parte dentro del script,
+        //debe estar declarada como corresponde. function nombre(){}; 
+        //RECORDAR: Si se usa LET, dicha variable estara disponible unicamente dentro del bloque que se usa, para que la misma variable pueda ser de uso GLOBAL,
+        //debe ser creada usando el comando VAR. Asi mismo, cuando se menciona DENTRO de una funcion, debe ser mencionada DIRECTAMENTE (sin el "var"),
+        //de colocar LET, o VAR, dentro de la funcion, la misma generara NUEVAS VARIABLES con EL MISMO NOMBRE, por ende, no funcionara de forma global.
+
+
         //inicio de las operaciones logicas
-                
+       
+
         function calculosueldo(){
         categoriaElegida = prompt('Cual es tu categoria?');
         gradoElegido = prompt('Cual es tu grado?');
         uR = prompt('Cuanto valen las UR hoy?');
-        
-                //INICIO DE CATEGORIA F
-                if (categoriaElegida == 'f') 
-                {
+                 //testing mejora del script    
+                 //INICIO Del proceso
+                 if (categoriaElegida == 'f'){
                 catSinGrado = catF * uR;
-                if (gradoElegido == 0)
+                calculoF();
+                 }
+                    else if(categoriaElegida == 'e'){
+                    catSinGrado = catE * uR;
+                    calculoE();
+                    }
+                        else if(categoriaElegida == 'd'){
+                        catSinGrado = catD * uR;
+                        calculoD();
+                        }
+                            else if (categoriaElegida == 'c'){
+                            catSinGrado = catD * uR;
+                            calculoC();    
+                            }
+                                else{
+                                    alert ('CAPO, pone una categoria que valga la pena calcular...');
+                                }
+                
+                }
+            
+        
+            function calculoF(){
+                    if (gradoElegido == 0)
                     {
                         sueldoBruto = catSinGrado;
                         sueldoNeto = sueldoBruto - (sueldoBruto * descBruto) ;
@@ -163,14 +197,10 @@
                         sueldoNeto = sueldoBruto - (sueldoBruto * descBruto) ;
                     alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto);
                         }
-                    }
-
-
-                //INICIO DE CATEGORIA E
-            else if (categoriaElegida == 'e') 
-                {
-                catSinGrado = catE * uR;
-                if (gradoElegido == 0)
+            }
+            
+            function calculoE(){
+                    if (gradoElegido == 0)
                     {
                         sueldoBruto = catSinGrado;
                         sueldoNeto = sueldoBruto - (sueldoBruto * descBruto) ;
@@ -246,12 +276,9 @@
                         sueldoNeto = sueldoBruto - (sueldoBruto * descBruto) ;
                     alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto);
                         }
-                 }
-                //INICIO DE CATEGORIA D
-            else if (categoriaElegida == 'd')
-                {
-                catsingrado = (catD * uR);
-                if (gradoElegido == 0)
+            }
+            function calculoD(){
+                    if (gradoElegido == 0)
                     {
                     sueldobruto = catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
@@ -325,12 +352,9 @@
                         sueldoNeto = sueldoBruto - (sueldoBruto * descBruto) ;
                     alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto);
                         }
-                }
-             //INICIO DE CATEGORIA C
-             else if (categoriaElegida == 'c')
-                {
-                catsingrado = (catC * uR);
-                if (gradoElegido == 0)
+            }
+            function calculoC(){
+                    if (gradoElegido == 0)
                     {
                     sueldobruto = catsingrado;
                     alert ('elsueldo bruto es ' +  sueldobruto);
@@ -404,16 +428,16 @@
                         sueldoNeto = sueldoBruto - (sueldoBruto * descBruto) ;
                     alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto);
                         }
-                }
-             
             }
+*/
 
- 
+  //  </script>
 
 
-    </script>
         
-        
+        -->
+
+        <script type="text/javascript" src="calculosueldo.js"></script>
 </head>
 <body>
 
