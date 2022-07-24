@@ -1,30 +1,29 @@
 //inicio de declaracion de variables globales
-const catF = 452; //cantidad de UR de la categoria F
-const vectorF = [452,461,470,479,560.8,574.8,589.8,604.8,693.5,714.59,736.59];
 
-const catE = 470; //cantidad de UR de la categoria E
+const vectorF = [452, 461, 470, 479, 493, 574.8, 589.8, 604.8, 693.5, 714.59, 736.59];
 const vectorE = [470, 481, 495, 513, 602.5, 622.5, 643.5, 667.5, 763, 790, 818];
-
-const catD = 582; //cantidad de UR de la categoria D
 const vectorD = [582, 600, 622, 645, 756.39, 784.29, 813.29, 844.29, 963.59, 997.59, 1033.59];
-
-const catC = 670; //cantidad de UR de la categoria C
 const vectorC = [670, 697, 731, 779, 904.5, 940.5, 979.5, 1020.5, 1164, 1209, 1257];
 
+const vectorUr = [128.47, 141.76, 155.05, 166.13, 177.20];
+
 //Cantidad de descuentos que se aplican en % del sueldo BRUTO SIN contar el Sindicato
-const descBruto = 0.13; //se multiplica el valor del bruto y se resta del total 
+const vectordescBruto = [0.13, 0.15]; //se multiplica el valor del bruto y se resta del total 
 //Cantidad de descuento que se aplica en % del sueldo BRUTO PARA el Sindicato
-const descSindi = 2; //idem a descBruto
+
 
 //Variables que el usuario CARGA
 var categoriaElegida = ''; // Variable que tendra el valor de la categoria elegida x le usuarie
 var gradoElegido = ''; // Variable que tendra el valor del grado elegido x le usuarie
-var uR = 0; // Variable que tendra el valor de la Unidad Retributiva de acuerdo al mes
+var uR = 0;
+var pPoNo = '';
 
 //Variables que usaran las funciones
 var catSinGrado = 0;   
 var sueldoBruto = 0;
 var sueldoNeto = 0;
+var sindicato = 0;
+
 
 
 //RECORDAR: Para usar una funcion dentro de otra, la misma se menciona SIN el "function" solo se nombra, cual variable. Luego en otra parte dentro del script,
@@ -36,43 +35,52 @@ var sueldoNeto = 0;
 
 //inicio de las operaciones logicas
 
-
 function calculosueldo(){
-categoriaElegida = prompt('Cual es tu categoria?');
-gradoElegido = prompt('Cual es tu grado?');
-uR = prompt('Cuanto valen las UR hoy?');
-         //testing mejora del script    
-         //INICIO Del proceso
-         if (categoriaElegida == 'f'){
-             catSinGrado = vectorF[gradoElegido] * uR;
+uR = document.querySelector('#fmes').value;
+categoriaElegida = document.querySelector('#fcategoria').value;
+gradoElegido = document.querySelector('#fgrado').value;
+sindicato = document.querySelector('#fsindicato').value;
+
+    if (categoriaElegida == 'F'){
+             catSinGrado = vectorF[gradoElegido] * vectorUr[uR];
              sueldoBruto = catSinGrado.toFixed();
-             sueldoNeto = (sueldoBruto - (sueldoBruto * descBruto)).toFixed() ;
-         alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;
+             sueldoNeto = (sueldoBruto - (sueldoBruto * vectordescBruto[sindicato])).toFixed();
+             plantaoNo();
          }
-            else if(categoriaElegida == 'e'){
-                catSinGrado = vectorE[gradoElegido] * uR;
+            else if(categoriaElegida == 'E'){
+                catSinGrado = vectorE[gradoElegido] * vectorUr[uR];
                 sueldoBruto = catSinGrado.toFixed();
-                sueldoNeto = (sueldoBruto - (sueldoBruto * descBruto)).toFixed() ;
-            alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;
+                sueldoNeto = (sueldoBruto - (sueldoBruto * vectordescBruto[sindicato])).toFixed();
+                plantaoNo();
             }
-                else if(categoriaElegida == 'd'){
-                    catSinGrado = vectorD[gradoElegido] * uR;
+                else if(categoriaElegida == 'D'){
+                    catSinGrado = vectorD[gradoElegido] * vectorUr[uR];
                     sueldoBruto = catSinGrado.toFixed();
-                    sueldoNeto = (sueldoBruto - (sueldoBruto * descBruto)).toFixed() ;
-                alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;
+                    sueldoNeto = (sueldoBruto - (sueldoBruto * vectordescBruto[sindicato])).toFixed();
+                    plantaoNo();
                 }
-                    else if (categoriaElegida == 'c'){
-                        catSinGrado = vectorC[gradoElegido] * uR;
+                    else if (categoriaElegida == 'C'){
+                        catSinGrado = vectorC[gradoElegido] * vectorUr[uR];
                         sueldoBruto = catSinGrado.toFixed();
-                        sueldoNeto = (sueldoBruto - (sueldoBruto * descBruto)).toFixed() ;
-                    alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;
+                        sueldoNeto = (sueldoBruto - (sueldoBruto * vectordescBruto[sindicato])).toFixed();
+                        plantaoNo();
                     } 
                         else{
                             alert ('CAPO, pone una categoria que valga la pena calcular...');
                         }
                 }
     
+function plantaoNo(){
+    pPoNo = document.querySelector('#fplanta').value;
 
-
+                    if (pPoNo == 'N'){
+                    sueldoBruto = (catSinGrado + (catSinGrado * 0.075)).toFixed();
+                    alert ('el sueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;
+                     }
+                        else {
+                        alert ('el sueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;           
+                        }
+                 }
+             
 
 

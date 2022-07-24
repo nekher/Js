@@ -2,7 +2,7 @@
 const catF = 452; //cantidad de UR de la categoria E
 //cantidad de UR de aumento, de acuerdo al GRADO en la categoria E
 
-const vectorF[452,461,470,479,560.8,574.8,589.8,604.8,693.5,714.59,736.59];
+const vectorF = [452,461,470,479,560.8,574.8,589.8,604.8,693.5,714.59,736.59];
 
 
 const catE = 470; //cantidad de UR de la categoria E
