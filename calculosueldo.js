@@ -112,7 +112,7 @@ uR = prompt('Cuanto valen las UR hoy?');
             {
                 sueldoBruto = catSinGrado.toFixed();
                 sueldoNeto = (sueldoBruto - (sueldoBruto * descBruto)).toFixed() ;
-            alert ('elsueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;
+            alert ('el sueldo bruto que cobraras es ' +  sueldoBruto + ' y el sueldo en mano es: ' + sueldoNeto) ;
             }
             else if (gradoElegido == 1) 
                 {
